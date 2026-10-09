@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support — Kasion</title>
+    <meta name="description" content="Get help with Kasion — the on-device personal finance and investment tracker for iPhone. Reach our support team at becipora79@gmail.com." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E" />
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg-soft: #11172e;
+            --card: #161d36;
+            --text: #e7ecf6;
+            --muted: #9aa3b8;
+            --accent: #7c5cff;
+            --accent-2: #2dd4bf;
+            --gradient: linear-gradient(135deg, #7c5cff 0%, #2dd4bf 100%);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--accent-2); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(11,16,32,0.85);
+            backdrop-filter: saturate(180%) blur(16px);
+            -webkit-backdrop-filter: saturate(180%) blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .nav-inner {
+            max-width: 1080px; margin: 0 auto;
+            padding: 14px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .brand {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 700; font-size: 18px;
+            color: var(--text);
+        }
+        .brand .logo {
+            width: 28px; height: 28px; border-radius: 8px;
+            background: var(--gradient);
+            display: grid; place-items: center; color: white; font-size: 16px;
+        }
+        .nav-links { display: flex; gap: 18px; align-items: center; }
+        .nav-links a { color: var(--muted); font-size: 14px; }
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+        .nav-cta {
+            padding: 8px 14px; border-radius: 10px;
+            background: var(--gradient); color: white !important;
+            font-weight: 600; font-size: 14px;
+        }
+        .page {
+            max-width: 820px; margin: 0 auto;
+            padding: 64px 24px 96px;
+        }
+        .page h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .meta { color: var(--muted); margin-bottom: 40px; font-size: 14px; }
+        .contact-card {
+            background: var(--gradient);
+            border-radius: 18px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 48px;
+            box-shadow: 0 20px 60px rgba(124,92,255,0.25);
+        }
+        .contact-card h2 { font-size: 22px; margin-bottom: 8px; color: white; }
+        .contact-card p { color: rgba(255,255,255,0.9); margin-bottom: 18px; }
+        .contact-card a.email {
+            display: inline-block;
+            background: white;
+            color: #1c1438;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .contact-card a.email:hover { text-decoration: none; transform: translateY(-1px); transition: transform .15s ease; }
+
+        .page h2 {
+            font-size: 22px; font-weight: 700;
+            margin-top: 36px; margin-bottom: 14px;
+            color: var(--text);
+        }
+        .page p, .page li {
+            color: var(--muted); font-size: 15.5px; margin-bottom: 12px;
+        }
+        .page ul { padding-left: 22px; margin-bottom: 16px; }
+        .page strong { color: var(--text); }
+        .faq-item {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-bottom: 12px;
+        }
+        .faq-item h3 {
+            font-size: 16px; font-weight: 700;
+            color: var(--accent-2);
+            margin-bottom: 8px;
+        }
+        .faq-item p { margin: 0; }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 32px 24px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        footer .inner {
+            max-width: 1080px; margin: 0 auto;
+            display: flex; flex-wrap: wrap;
+            justify-content: space-between; gap: 16px;
+        }
+        footer a { color: var(--muted); margin-right: 18px; }
+        footer a:hover { color: var(--text); text-decoration: none; }
+        @media (max-width: 640px) {
+            .nav-links a:not(.nav-cta) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">
+            <span class="logo">K</span>
+            <span>Kasion</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="index.html#download" class="nav-cta">Download</a>
+        </div>
+    </div>
+</nav>
+
+<main class="page">
+    <h1>Support</h1>
+    <p class="meta">We're here to help — usually within 24 hours.</p>
+
+    <div class="contact-card">
+        <h2>Contact Support</h2>
+        <p>Send us a message and we'll get back to you as quickly as possible.</p>
+        <a href="mailto:becipora79@gmail.com" class="email">becipora79@gmail.com</a>
+    </div>
+
+    <h2>Before You Write In</h2>
+    <p>To help us resolve your issue faster, please include the following in your email:</p>
+    <ul>
+        <li>Your iPhone model (e.g. iPhone 14 Pro) and the iOS version you're running (found in <em>Settings → General → About</em>).</li>
+        <li>The Kasion version number (found on the Settings screen inside the app).</li>
+        <li>A clear description of the issue, including what you expected to happen and what actually happened.</li>
+        <li>Screenshots or screen recordings, if applicable.</li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <h3>Does Kasion require an account?</h3>
+        <p>No. Kasion works fully offline without an account, login, email, or phone number. All your data is stored on your device.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Where is my data stored?</h3>
+        <p>All transactions, budgets, assets, and receipt images are stored locally on your iPhone. We do not upload anything to our servers.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Is Kasion free?</h3>
+        <p>Kasion is free to download and use. There are no subscriptions, ads, or in-app purchases.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Can I back up or transfer my data?</h3>
+        <p>Your data is included in your standard iPhone or iCloud backup (depending on your settings). You can also export all transactions to CSV from the Analytics screen.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I delete all my data?</h3>
+        <p>Deleting the Kasion app from your iPhone permanently removes all data stored by the app. There is no cloud copy to remove.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>How do I contact support?</h3>
+        <p>Email us at <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>. We typically respond within one business day.</p>
+    </div>
+
+    <h2>App Information</h2>
+    <ul>
+        <li><strong>App Name:</strong> Kasion</li>
+        <li><strong>Platform:</strong> iPhone (iOS)</li>
+        <li><strong>Purpose:</strong> Personal finance and investment tracking</li>
+        <li><strong>Developer Support Email:</strong> <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a></li>
+    </ul>
+</main>
+
+<footer>
+    <div class="inner">
+        <div>© 2026 Kasion. All rights reserved.</div>
+        <div>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="support.html">Support</a>
+            <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

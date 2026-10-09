@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Kasion</title>
+    <meta name="description" content="Privacy Policy for the Kasion iPhone app. Kasion is private by design — no account, no tracking, all data stays on your device." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E" />
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg-soft: #11172e;
+            --card: #161d36;
+            --text: #e7ecf6;
+            --muted: #9aa3b8;
+            --accent: #7c5cff;
+            --accent-2: #2dd4bf;
+            --gradient: linear-gradient(135deg, #7c5cff 0%, #2dd4bf 100%);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--accent-2); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(11,16,32,0.85);
+            backdrop-filter: saturate(180%) blur(16px);
+            -webkit-backdrop-filter: saturate(180%) blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .nav-inner {
+            max-width: 1080px; margin: 0 auto;
+            padding: 14px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .brand {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 700; font-size: 18px;
+            color: var(--text);
+        }
+        .brand .logo {
+            width: 28px; height: 28px; border-radius: 8px;
+            background: var(--gradient);
+            display: grid; place-items: center; color: white; font-size: 16px;
+        }
+        .nav-links { display: flex; gap: 18px; align-items: center; }
+        .nav-links a { color: var(--muted); font-size: 14px; }
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+        .nav-cta {
+            padding: 8px 14px; border-radius: 10px;
+            background: var(--gradient); color: white !important;
+            font-weight: 600; font-size: 14px;
+        }
+        .page {
+            max-width: 820px; margin: 0 auto;
+            padding: 64px 24px 96px;
+        }
+        .page h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .meta { color: var(--muted); margin-bottom: 40px; font-size: 14px; }
+        .lede {
+            font-size: 17px; color: var(--text);
+            background: var(--card);
+            border: 1px solid rgba(124,92,255,0.25);
+            border-left: 4px solid var(--accent);
+            padding: 18px 22px; border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        .page h2 {
+            font-size: 22px; font-weight: 700;
+            margin-top: 36px; margin-bottom: 10px;
+            color: var(--text);
+        }
+        .page p, .page li {
+            color: var(--muted); font-size: 15.5px; margin-bottom: 12px;
+        }
+        .page ul { padding-left: 22px; margin-bottom: 16px; }
+        .page strong { color: var(--text); }
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 32px 24px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        footer .inner {
+            max-width: 1080px; margin: 0 auto;
+            display: flex; flex-wrap: wrap;
+            justify-content: space-between; gap: 16px;
+        }
+        footer a { color: var(--muted); margin-right: 18px; }
+        footer a:hover { color: var(--text); text-decoration: none; }
+        @media (max-width: 640px) {
+            .nav-links a:not(.nav-cta) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">
+            <span class="logo">K</span>
+            <span>Kasion</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="support.html">Support</a>
+            <a href="terms.html">Terms</a>
+            <a href="index.html#download" class="nav-cta">Download</a>
+        </div>
+    </div>
+</nav>
+
+<main class="page">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: October 9, 2026</p>
+
+    <p class="lede">
+        Kasion is built around a simple promise: <strong>your financial data stays on your device.</strong>
+        We don't collect it, we don't upload it, and we don't share it with anyone.
+    </p>
+
+    <h2>1. Data We Do Not Collect</h2>
+    <p>Kasion does not require an account, login, email, phone number, or any personal identifier to use. The app does not collect, transmit, or sync any of the following:</p>
+    <ul>
+        <li>Financial transactions, asset holdings, or balances</li>
+        <li>Receipt or attachment photos</li>
+        <li>Budget settings or category data</li>
+        <li>Usage analytics, device identifiers, or advertising IDs</li>
+        <li>Location data, contacts, or any other personal information</li>
+    </ul>
+
+    <h2>2. Where Your Data Lives</h2>
+    <p>All data you enter into Kasion — including transactions, budgets, assets, net worth snapshots, and receipt photos — is stored locally on your iPhone using iOS's standard on-device storage mechanisms. We never have access to this data and there is no server component that stores it.</p>
+
+    <h2>3. Permissions We Request</h2>
+    <p>To deliver features you opt into, Kasion may request the following iOS permissions. Granting any of these is entirely your choice and can be revoked at any time in iOS Settings:</p>
+    <ul>
+        <li><strong>Camera</strong> — only when you tap the camera icon to scan a receipt for a transaction.</li>
+        <li><strong>Photo Library</strong> — only when you pick an existing receipt image to attach to a transaction.</li>
+        <li><strong>Notifications</strong> — only if you enable budget reminders or spending alerts.</li>
+    </ul>
+    <p>Images you capture or pick are stored locally and never leave your device.</p>
+
+    <h2>4. Third-Party Services</h2>
+    <p>Kasion does not include any third-party analytics SDKs, advertising networks, crash reporting tools, or marketing trackers. The app is fully self-contained.</p>
+
+    <h2>5. Children</h2>
+    <p>Kasion is not directed at children under the age of 13 (or the equivalent minimum age in your jurisdiction). We do not knowingly collect any information from children, because we do not collect any information from anyone.</p>
+
+    <h2>6. Data Deletion</h2>
+    <p>Because all data lives on your device, deleting the app from your iPhone permanently removes all stored Kasion data. There is no cloud copy to delete.</p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>If we ever update this Privacy Policy, we will post the revised version on this page and update the "Last updated" date above. Material changes will, where required by applicable law, be communicated through the App Store listing or an in-app notice.</p>
+
+    <h2>8. Contact</h2>
+    <p>If you have any questions about this Privacy Policy or Kasion's privacy practices, please contact us at:</p>
+    <ul>
+        <li><strong>Email:</strong> <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a></li>
+        <li><strong>App:</strong> Kasion on the App Store</li>
+    </ul>
+</main>
+
+<footer>
+    <div class="inner">
+        <div>© 2026 Kasion. All rights reserved.</div>
+        <div>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="support.html">Support</a>
+            <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

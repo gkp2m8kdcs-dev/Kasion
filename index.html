@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kasion — Smart Wealth, Clearly Visualized</title>
+    <meta name="description" content="Kasion is a refined personal finance and investment companion for iPhone. Track assets, budgets, and net worth — all without an account, login, or subscription." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%B0%3C/text%3E%3C/svg%3E" />
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg-soft: #11172e;
+            --card: #161d36;
+            --text: #e7ecf6;
+            --muted: #9aa3b8;
+            --accent: #7c5cff;
+            --accent-2: #2dd4bf;
+            --gradient: linear-gradient(135deg, #7c5cff 0%, #2dd4bf 100%);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent-2); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(11, 16, 32, 0.85);
+            backdrop-filter: saturate(180%) blur(16px);
+            -webkit-backdrop-filter: saturate(180%) blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.3px;
+            color: var(--text);
+        }
+        .brand .logo {
+            width: 28px; height: 28px;
+            border-radius: 8px;
+            background: var(--gradient);
+            display: grid; place-items: center;
+            color: white; font-size: 16px;
+        }
+        .nav-links { display: flex; gap: 18px; align-items: center; }
+        .nav-links a { color: var(--muted); font-size: 14px; }
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+        .nav-cta {
+            padding: 8px 14px;
+            border-radius: 10px;
+            background: var(--gradient);
+            color: white !important;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .hero {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 96px 24px 64px;
+            text-align: center;
+        }
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(124,92,255,0.12);
+            color: #b9a8ff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 18px;
+        }
+        .hero p.tagline {
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--muted);
+            max-width: 720px;
+            margin: 0 auto 28px;
+        }
+        .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform .15s ease, opacity .15s ease;
+        }
+        .btn-primary { background: var(--gradient); color: white; }
+        .btn-secondary { background: var(--card); color: var(--text); border: 1px solid rgba(255,255,255,0.08); }
+        .btn:hover { transform: translateY(-1px); text-decoration: none; opacity: .95; }
+
+        .hero-img {
+            margin-top: 56px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.06);
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a2347 0%, #0e1530 60%, #1a1240 100%);
+            position: relative;
+        }
+        .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        section { padding: 80px 24px; }
+        .container { max-width: 1080px; margin: 0 auto; }
+        .section-title {
+            text-align: center;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--muted);
+            max-width: 640px;
+            margin: 0 auto 56px;
+            font-size: 17px;
+        }
+
+        .features {
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+        }
+        .grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 18px;
+            padding: 26px;
+            transition: transform .2s ease, border-color .2s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(124,92,255,0.35);
+        }
+        .card .icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: grid; place-items: center;
+            background: rgba(124,92,255,0.15);
+            color: #b9a8ff;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+        .card h3 { font-size: 18px; margin-bottom: 8px; }
+        .card p { color: var(--muted); font-size: 14.5px; }
+
+        .showcase {
+            background: var(--bg-soft);
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        .showcase-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .screenshot {
+            border-radius: 22px;
+            overflow: hidden;
+            aspect-ratio: 9/16;
+            background: linear-gradient(135deg, #1a2347, #0e1530);
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .screenshot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .privacy {
+            background: var(--bg);
+        }
+        .privacy .card {
+            text-align: center;
+            padding: 40px 30px;
+        }
+        .privacy h3 { color: var(--accent-2); }
+
+        .cta-banner {
+            background: var(--gradient);
+            text-align: center;
+            border-radius: 24px;
+            padding: 56px 30px;
+            margin: 0 24px 80px;
+            max-width: 1040px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-banner h2 { font-size: clamp(24px, 4vw, 36px); margin-bottom: 10px; color: white; }
+        .cta-banner p { color: rgba(255,255,255,0.9); margin-bottom: 22px; font-size: 17px; }
+        .cta-banner .btn { background: white; color: #1c1438; }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 32px 24px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        footer .inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        footer a { color: var(--muted); margin-right: 18px; }
+        footer a:hover { color: var(--text); text-decoration: none; }
+
+        @media (max-width: 640px) {
+            .nav-links a:not(.nav-cta) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <div class="brand">
+            <span class="logo">K</span>
+            <span>Kasion</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#showcase">Preview</a>
+            <a href="#privacy">Privacy</a>
+            <a href="support.html">Support</a>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <span class="eyebrow">For iPhone · No Account Required</span>
+    <h1>Smart Wealth,<br/>Clearly Visualized.</h1>
+    <p class="tagline">Kasion turns everyday money tracking into a clean, visual experience that empowers smarter investing decisions — without an account, login, or subscription.</p>
+    <div class="hero-cta">
+        <a href="#download" class="btn btn-primary">Get Kasion for iPhone</a>
+        <a href="#features" class="btn btn-secondary">Explore Features</a>
+    </div>
+
+    <div class="hero-img">
+        <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Premium%20iPhone%20finance%20app%20dashboard%20screenshot%20mockup%2C%20dark%20mode%20UI%2C%20purple%20and%20teal%20gradient%20accent%2C%20net%20worth%20card%2C%20donut%20allocation%20chart%2C%20sparkline%20trends%2C%20clean%20modern%20typography%2C%20minimal%20glass%20panels%2C%20high%20fidelity%20product%20shot%20on%20pure%20white%20background&image_size=landscape_16_9" alt="Kasion dashboard preview" />
+    </div>
+</header>
+
+<section id="features" class="features">
+    <div class="container">
+        <h2 class="section-title">Everything you need. Nothing you don't.</h2>
+        <p class="section-sub">Designed to be powerful enough for serious investors and simple enough for everyday use.</p>
+
+        <div class="grid">
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>Your Portfolio at a Glance</h3>
+                <p>Track stocks, ETFs, bonds, crypto, real estate, commodities, mutual funds, and cash in one place. Every holding shows market value, average cost, gain or loss, and an animated sparkline.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📈</div>
+                <h3>Interactive Charts</h3>
+                <p>Bar, line, pie, and donut charts rendered with native Core Graphics — no third-party libraries. Smooth animations and haptic feedback make data feel alive.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🧾</div>
+                <h3>Capture Every Receipt</h3>
+                <p>Snap a photo or pick from your library to attach to any transaction. Pinch-to-zoom and full-screen viewer mode for inspecting details.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🎯</div>
+                <h3>Budgets That Work</h3>
+                <p>Set a monthly spending cap and per-category limits. Progress bars shift from green to amber to red as you approach your ceiling.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔍</div>
+                <h3>Analytics for the Curious</h3>
+                <p>Switch between Week, Month, Quarter, and Year views. Drill into categories, identify recurring expenses, and export every transaction as CSV.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔒</div>
+                <h3>Private by Design</h3>
+                <p>No email, password, or phone number. Everything lives on-device. No analytics, no tracking, no remote servers. Delete the app, and your data disappears.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="showcase" class="showcase">
+    <div class="container">
+        <h2 class="section-title">A closer look</h2>
+        <p class="section-sub">Every screen is crafted for clarity, speed, and a touch of delight.</p>
+
+        <div class="showcase-row">
+            <div class="screenshot">
+                <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=iPhone%20app%20screen%20mockup%20financial%20dashboard%2C%20dark%20UI%2C%20purple%20teal%20gradient%20accents%2C%20net%20worth%20stat%20cards%2C%20donut%20chart%20allocation%2C%20list%20of%20assets%2C%20realistic%20product%20screenshot%20style&image_size=portrait_16_9" alt="Kasion dashboard screen" />
+            </div>
+            <div class="screenshot">
+                <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=iPhone%20app%20screen%20mockup%20budget%20manager%2C%20dark%20UI%2C%20category%20budget%20cards%2C%20progress%20bars%20green%20amber%20red%2C%20total%20spending%20cap%2C%20realistic%20product%20screenshot&image_size=portrait_16_9" alt="Kasion budget screen" />
+            </div>
+            <div class="screenshot">
+                <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=iPhone%20app%20screen%20mockup%20analytics%20screen%2C%20dark%20UI%2C%20week%20month%20quarter%20toggle%2C%20bar%20chart%20income%20vs%20expenses%2C%20line%20chart%20net%20worth%20trend%2C%20realistic%20product%20screenshot&image_size=portrait_16_9" alt="Kasion analytics screen" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="privacy" class="privacy">
+    <div class="container">
+        <h2 class="section-title">Private by design</h2>
+        <p class="section-sub">Your data never leaves your device.</p>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">🚫</div>
+                <h3>No Account Needed</h3>
+                <p>No email, password, or phone number. Just install and start tracking.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>On-Device Storage</h3>
+                <p>Transactions, budgets, and receipts all live locally on your iPhone.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🛡️</div>
+                <h3>Zero Tracking</h3>
+                <p>No analytics, no third-party SDKs, no remote servers. Delete the app and your data is gone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="download" class="cta-banner">
+    <h2>Your wealth deserves more than a spreadsheet.</h2>
+    <p>Download Kasion and see your money clearly.</p>
+    <a href="#" class="btn">Get Kasion on the App Store</a>
+</div>
+
+<footer>
+    <div class="inner">
+        <div>© 2026 Kasion. All rights reserved.</div>
+        <div>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="support.html">Support</a>
+            <a href="mailto:becipora79@gmail.com">becipora79@gmail.com</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
